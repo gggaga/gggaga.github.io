@@ -1,19 +1,90 @@
-<figcaption style="font-size: 30px; text-align: center;">   一些我所喜愛的「偶像」 </figcaption>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>我喜愛的偶像</title>
+    <style>
+        /* 整體背景與字體設定 */
+        body {
+            background-color: #f5f3ef; /* 日系淡米杏色背景 */
+            font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* 標題設定 */
+        h1 {
+            font-size: 32px;
+            color: #3c3c3c; /* 深灰黑，柔和不刺眼 */
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* 整體卡片容器，橫向排列＋換行 */
+        .idol-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        /* 每一張偶像卡片樣式 */
+        .idol-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            padding: 16px;
+            width: 260px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .idol-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 偶像圖片樣式 */
+        .idol-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* 偶像名字樣式（靛藍＋細陰影） */
+        .idol-name {
+            font-size: 18px;
+            color: #2e4057; /* 靛藍色：有深度、很日系 */
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+<h1>   一些我所喜愛的「偶像」 </h1>
 
 <figcaption>　</figcaption>
 
-<div style="display: flex; justify-content: center; gap: 40px;">
-    <div style="text-align: center;">
-        <a href="https://gggaga.github.io/mp4..HW.html">
-            <img src="IMG_0571.png" width="300" height="260">
-        </a>
-        <figcaption style="font-size: 20px;">漣ジュン</figcaption>
-    </div>
-    
- <div style="text-align: center;">
-        <a href="https://gggaga.github.io/MP3..HW.html">
-            <img src="i7.jpg" width="286" height="260">
-        </a>
-        <figcaption style="font-size: 20px;">idolish7</figcaption>
-    </div>
+<div class="idol-container">
+  <div class="idol-card">
+    <a href="https://gggaga.github.io/mp4..HW.html">
+        <img src="IMG_0571.png" alt="漣ジュン">
+    </a>
+    <div class="idol-name">漣ジュン</div>
+  </div>
+
+  <div class="idol-card">   
+    <a href="https://gggaga.github.io/MP3..HW.html">
+        <img src="i7.jpg" alt="idolish7">
+    </a>
+    <div class="idol-name">idolish7</div>
 </div>
+
+</div>
+
+</body>
+</html>
+    
