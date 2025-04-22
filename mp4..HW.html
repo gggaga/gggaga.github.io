@@ -1,177 +1,242 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>漣ジュン內頁</title>
-    <style>
-        body {
-            background-color: #778899; /* 灰藍底 */
-            font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            color: #e0e0e0;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <title>漣ジュン內頁</title>
+  <style>
+    body {
+      background-color: #778899;
+      font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      color: #e0e0e0;
+      text-align: center;
+    }
 
-        img {
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
+    /* 輪播樣式 */
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
 
-        audio, video {
-            margin: 32px auto;
-            display: block;
-        }
+    .image-carousel {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      max-width: 90%;
+      padding-bottom: 10px;
+    }
 
-        figcaption {
-            font-size: 22px;
-            color: #f0f0f0;
-            margin: 12px 0;
-            letter-spacing: 1px;
-        }
+    .image-carousel img {
+      width: 240px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
 
-        a figcaption {
-            font-size: 24px;
-            text-align: center;
-            margin-top: 40px;
-            color: #e0e0e0;
-            text-decoration: underline;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
+    .arrow {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-        a figcaption:hover {
-            color: #ffffff;
-        }
+    .arrow:hover {
+      color: #ffd;
+    }
 
-        /* ↓ 對話區樣式 */
-        #my-avatar {
-            width: 160px;
-            border-radius: 50%;
-            margin-top: 60px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+    audio,
+    video {
+      margin: 32px auto;
+      display: block;
+    }
 
-        #my-avatar:hover {
-            transform: scale(1.05);
-        }
+    figcaption {
+      font-size: 22px;
+      color: #f0f0f0;
+      margin: 12px 0;
+      letter-spacing: 1px;
+    }
 
-        #click-hint {
-            font-size: 16px;
-            color: #f0f0f0;
-            margin-top: 12px;
-            animation: blink 1.2s infinite;
-        }
+    a figcaption {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 60px;
+      color: #e0e0e0;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
+    a figcaption:hover {
+      color: #ffffff;
+    }
 
-        #chat-box {
-            max-width: 600px;
-            background: #f9f9f9;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 30px auto 60px auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            font-size: 16px;
-            text-align: left;
-            line-height: 1.6;
-            display: none;
-            color: #2e4057;
-        }
+    /* ↓ 對話區左右樣式 */
+    .avatar-chat-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
 
-        .message {
-            margin-bottom: 16px;
-        }
-    </style>
+    .avatar-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #my-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #my-avatar:hover {
+      transform: scale(1.05);
+    }
+
+    #click-hint {
+      font-size: 16px;
+      color: #f0f0f0;
+      margin-top: 12px;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    #chat-box {
+      max-width: 600px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      text-align: left;
+      line-height: 1.6;
+      display: none;
+      color: #2e4057;
+      min-height: 120px;
+    }
+
+    .message {
+      margin-bottom: 16px;
+    }
+  </style>
 </head>
 <body>
-
- <!-- 偶像圖片輪播區（可左右切換） -->
-<div class="carousel-wrapper">
+  <!-- 輪播圖 -->
+  <div class="carousel-wrapper">
     <button class="arrow left" onclick="scrollCarousel(-1)">←</button>
-
     <div class="image-carousel" id="carousel">
-        <img src="IMG_5444.png" alt="漣ジュン1">
-        <img src="IMG_7596.png" alt="漣ジュン2">
-        <img src="IMG_3825.png" alt="漣ジュン3">
-        <img src="IMG_5437.png" alt="漣ジュン4">
-        <img src="IMG_1888.png" alt="漣ジュン5">
+      <img src="IMG_5444.png" alt="漣ジュン1" />
+      <img src="IMG_7596.png" alt="漣ジュン2" />
+      <img src="IMG_3825.png" alt="漣ジュン3" />
+      <img src="IMG_5437.png" alt="漣ジュン4" />
+      <img src="IMG_1888.png" alt="漣ジュン5" />
     </div>
-
     <button class="arrow right" onclick="scrollCarousel(1)">→</button>
-</div>
-<figcaption>漣ジュン</figcaption>
-    
- <!-- 偶像圖片與音樂 -->
-    <audio controls>
-        <source src="【ES】 Back-alley Monologue - Sazanami Jun 「KAN⧸ROM⧸ENG⧸IND」.mp3">
-    </audio>
+  </div>
+  <figcaption>漣ジュン</figcaption>
 
-    <!-- Live 影片 -->
-    <video controls width="1000" src="Drops.mp4"></video>
-    <figcaption>- Studio Live - TearS『セツナDrops』</figcaption>
+  <!-- 音樂 -->
+  <audio controls>
+    <source src="【ES】 Back-alley Monologue - Sazanami Jun 「KAN⧸ROM⧸ENG⧸IND」.mp3" />
+  </audio>
 
-    <!-- 對話區 -->
-    <img id="my-avatar" src="IMG_8327.png" alt="我的角色圖" title="點我開始說話！">
-    <p id="click-hint">點圖片 🗨️</p>
+  <!-- 影片 -->
+  <video controls width="1000" src="Drops.mp4"></video>
+  <figcaption>- Studio Live - TearS『セツナDrops』</figcaption>
+
+  <!-- 對話角色圖與框 -->
+  <div class="avatar-chat-wrapper">
+    <div class="avatar-side">
+      <img id="my-avatar" src="IMG_8327.png" alt="我的角色圖" title="點我開始說話！" />
+      <p id="click-hint">點圖片 🗨️</p>
+    </div>
     <div id="chat-box"></div>
+  </div>
 
-    <!-- 放到底的返回連結 -->
-    <a href="https://gggaga.github.io">
-        <figcaption>バック</figcaption>
-    </a>
+  <!-- 返回連結 -->
+  <a href="https://gggaga.github.io">
+    <figcaption>バック</figcaption>
+  </a>
 
-    <script>
-        const messages = [
-            "他一開始給人的感覺其實有點距離感……",
-            "但認真看下去才發現他其實很溫柔，也很努力。",
-            "尤其是他對於舞台的堅持，真的讓人好感動。",
-            "總覺得，他就像那種，默默守護著大家的人。",
-            "能喜歡上他，真的太好了。"
-        ];
+  <!-- JS -->
+  <script>
+    const messages = [
+      "他一開始給人的感覺其實有點距離感……",
+      "但認真看下去才發現他其實很溫柔，也很努力。",
+      "尤其是他對於舞台的堅持，真的讓人好感動。",
+      "總覺得，他就像那種，默默守護著大家的人。",
+      "能喜歡上他，真的太好了。"
+    ];
 
-        let currentMsg = 0;
-        let charIndex = 0;
-        const chatBox = document.getElementById("chat-box");
+    let currentMsg = 0;
+    let charIndex = 0;
+    const chatBox = document.getElementById("chat-box");
 
-        function typeNextChar() {
-            const message = messages[currentMsg];
-            let currentLine = document.getElementById(`msg-${currentMsg}`);
-            
-            if (!currentLine) {
-                currentLine = document.createElement("div");
-                currentLine.className = "message";
-                currentLine.id = `msg-${currentMsg}`;
-                chatBox.appendChild(currentLine);
-            }
+    function typeNextChar() {
+      const message = messages[currentMsg];
+      let currentLine = document.getElementById(`msg-${currentMsg}`);
 
-            currentLine.textContent += message[charIndex];
-            charIndex++;
+      if (!currentLine) {
+        currentLine = document.createElement("div");
+        currentLine.className = "message";
+        currentLine.id = `msg-${currentMsg}`;
+        chatBox.appendChild(currentLine);
+      }
 
-            if (charIndex < message.length) {
-                setTimeout(typeNextChar, 50);
-            } else {
-                charIndex = 0;
-                currentMsg++;
-                if (currentMsg < messages.length) {
-                    setTimeout(typeNextChar, 1000);
-                }
-            }
+      currentLine.textContent += message[charIndex];
+      charIndex++;
+
+      if (charIndex < message.length) {
+        setTimeout(typeNextChar, 50);
+      } else {
+        charIndex = 0;
+        currentMsg++;
+        if (currentMsg < messages.length) {
+          setTimeout(typeNextChar, 1000);
         }
+      }
+    }
 
-        document.getElementById("my-avatar").addEventListener("click", () => {
-            const avatar = document.getElementById("my-avatar");
-            const hint = document.getElementById("click-hint");
-            avatar.style.pointerEvents = "none";
-            hint.style.display = "none";
-            chatBox.style.display = "block";
-            typeNextChar();
-        });
-    </script>
+    document.getElementById("my-avatar").addEventListener("click", () => {
+      const avatar = document.getElementById("my-avatar");
+      const hint = document.getElementById("click-hint");
+      avatar.style.pointerEvents = "none";
+      hint.style.display = "none";
+      chatBox.style.display = "block";
+      typeNextChar();
+    });
 
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById("carousel");
+      carousel.scrollBy({ left: direction * 300, behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
