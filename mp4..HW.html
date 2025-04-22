@@ -1,23 +1,163 @@
-<img src="IMG_0571.png"width="500" height="400">
-<audio controls>
-    <source src="【ES】 Back-alley Monologue - Sazanami Jun 「KAN⧸ROM⧸ENG⧸IND」.mp3">
-</audio>
-<figcaption style="font-size: 22px;">漣ジュン</figcaption>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>漣ジュン內頁</title>
+    <style>
+        body {
+            background-color: #778899; /* 灰藍底 */
+            font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            color: #e0e0e0;
+            text-align: center;
+        }
 
-<figcaption>　</figcaption>
+        img {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
-<video controls width="1000" src="Drops.mp4">
-</video>
-<figcaption style="font-size: 22px;"> -Studio Live-TearS『セツナDrops』</figcaption>
+        audio, video {
+            margin: 32px auto;
+            display: block;
+        }
 
-<figcaption>　</figcaption>
+        figcaption {
+            font-size: 22px;
+            color: #f0f0f0;
+            margin: 12px 0;
+            letter-spacing: 1px;
+        }
 
-<iframe width="1120" height="620" src="https://www.youtube.com/embed/DM1caWKfXJU?si=JefCLmjrr_840pxX" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        a figcaption {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 40px;
+            color: #e0e0e0;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
 
-<figcaption>　</figcaption>
+        a figcaption:hover {
+            color: #ffffff;
+        }
 
-<a href="https://gggaga.github.io">    
-    <figcaption style="font-size: 24px; text-align: center;">バック</figcaption>
-</a>
+        /* ↓ 對話區樣式 */
+        #my-avatar {
+            width: 160px;
+            border-radius: 50%;
+            margin-top: 60px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        #my-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        #click-hint {
+            font-size: 16px;
+            color: #f0f0f0;
+            margin-top: 12px;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        #chat-box {
+            max-width: 600px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto 60px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            text-align: left;
+            line-height: 1.6;
+            display: none;
+            color: #2e4057;
+        }
+
+        .message {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 偶像圖片與音樂 -->
+    <img src="IMG_0571.png" width="500" height="400" alt="漣ジュン">
+    <audio controls>
+        <source src="【ES】 Back-alley Monologue - Sazanami Jun 「KAN⧸ROM⧸ENG⧸IND」.mp3">
+    </audio>
+    <figcaption>漣ジュン</figcaption>
+
+    <!-- Live 影片 -->
+    <video controls width="1000" src="Drops.mp4"></video>
+    <figcaption>- Studio Live - TearS『セツナDrops』</figcaption>
+
+    <!-- 對話區 -->
+    <img id="my-avatar" src="IMG_8327.png" alt="我的角色圖" title="點我開始對話！">
+    <p id="click-hint">點圖片開始對話 🗨️</p>
+    <div id="chat-box"></div>
+
+    <!-- 放到底的返回連結 -->
+    <a href="https://gggaga.github.io">
+        <figcaption>バック</figcaption>
+    </a>
+
+    <script>
+        const messages = [
+            "他一開始給人的感覺其實有點距離感……",
+            "但認真看下去才發現他其實很溫柔，也很努力。",
+            "尤其是他對於舞台的堅持，真的讓人好感動。",
+            "總覺得，他就像那種，默默守護著大家的人。",
+            "能喜歡上他，真的太好了。"
+        ];
+
+        let currentMsg = 0;
+        let charIndex = 0;
+        const chatBox = document.getElementById("chat-box");
+
+        function typeNextChar() {
+            const message = messages[currentMsg];
+            let currentLine = document.getElementById(`msg-${currentMsg}`);
+            
+            if (!currentLine) {
+                currentLine = document.createElement("div");
+                currentLine.className = "message";
+                currentLine.id = `msg-${currentMsg}`;
+                chatBox.appendChild(currentLine);
+            }
+
+            currentLine.textContent += message[charIndex];
+            charIndex++;
+
+            if (charIndex < message.length) {
+                setTimeout(typeNextChar, 50);
+            } else {
+                charIndex = 0;
+                currentMsg++;
+                if (currentMsg < messages.length) {
+                    setTimeout(typeNextChar, 1000);
+                }
+            }
+        }
+
+        document.getElementById("my-avatar").addEventListener("click", () => {
+            const avatar = document.getElementById("my-avatar");
+            const hint = document.getElementById("click-hint");
+            avatar.style.pointerEvents = "none";
+            hint.style.display = "none";
+            chatBox.style.display = "block";
+            typeNextChar();
+        });
+    </script>
+
+</body>
+</html>
