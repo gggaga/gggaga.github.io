@@ -90,9 +90,23 @@
 </head>
 <body>
 
-    <!-- 偶像圖片與音樂 -->
-    <img src="IMG_5444.png" width="500" height="400" alt="漣ジュン">
-    <figcaption>漣ジュン</figcaption>
+ <!-- 偶像圖片輪播區（可左右切換） -->
+<div class="carousel-wrapper">
+    <button class="arrow left" onclick="scrollCarousel(-1)">←</button>
+
+    <div class="image-carousel" id="carousel">
+        <img src="IMG_5444.png" alt="漣ジュン1">
+        <img src="IMG_7596.png" alt="漣ジュン2">
+        <img src="IMG_3825.png" alt="漣ジュン3">
+        <img src="IMG_5437.png" alt="漣ジュン4">
+        <img src="IMG_1888.png" alt="漣ジュン5">
+    </div>
+
+    <button class="arrow right" onclick="scrollCarousel(1)">→</button>
+</div>
+<figcaption>漣ジュン</figcaption>
+    
+ <!-- 偶像圖片與音樂 -->
     <audio controls>
         <source src="【ES】 Back-alley Monologue - Sazanami Jun 「KAN⧸ROM⧸ENG⧸IND」.mp3">
     </audio>
