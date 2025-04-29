@@ -13,7 +13,6 @@
       text-align: center;
     }
 
-    /* 輪播樣式 */
     .carousel-wrapper {
       display: flex;
       align-items: center;
@@ -31,6 +30,7 @@
       scroll-behavior: smooth;
       max-width: 90%;
       padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
     }
 
     .image-carousel img {
@@ -40,6 +40,7 @@
       border-radius: 12px;
       flex-shrink: 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      scroll-snap-align: start;
     }
 
     .arrow {
@@ -82,7 +83,6 @@
       color: #ffffff;
     }
 
-    /* ↓ 對話區左右樣式 */
     .avatar-chat-wrapper {
       display: flex;
       justify-content: center;
@@ -121,13 +121,8 @@
     }
 
     @keyframes blink {
-      0%,
-      100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.4;
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
     #chat-box {
@@ -196,6 +191,55 @@
 
   <!-- JS -->
   <script>
+    const carousel = document.getElementById("carousel");
+    let isTransitioning = false;
+
+    function setupInfiniteCarousel() {
+      const images = Array.from(carousel.children);
+      const cloneCount = 3;
+
+      for (let i = 0; i < cloneCount; i++) {
+        const cloneFirst = images[i].cloneNode(true);
+        const cloneLast = images[images.length - 1 - i].cloneNode(true);
+        carousel.appendChild(cloneFirst);
+        carousel.insertBefore(cloneLast, carousel.firstChild);
+      }
+
+      requestAnimationFrame(() => {
+        const firstRealImage = carousel.children[cloneCount];
+        carousel.scrollLeft = firstRealImage.offsetLeft;
+      });
+    }
+
+    function scrollCarousel(direction) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const itemWidth = carousel.children[0].offsetWidth + 12;
+      carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
+
+      setTimeout(() => {
+        const scrollLeft = carousel.scrollLeft;
+        const children = carousel.children;
+        const total = children.length;
+        const cloneCount = 3;
+        const firstReal = children[cloneCount];
+        const lastReal = children[total - cloneCount - 1];
+
+        if (scrollLeft >= lastReal.offsetLeft) {
+          carousel.scrollLeft = firstReal.offsetLeft;
+        }
+
+        if (scrollLeft <= children[cloneCount - 1].offsetLeft) {
+          carousel.scrollLeft = lastReal.offsetLeft;
+        }
+
+        isTransitioning = false;
+      }, 450);
+    }
+
+    setupInfiniteCarousel();
+
     const messages = [
       "他一開始給人的感覺其實有點距離感……",
       "但認真看下去才發現他其實很溫柔，也很努力。",
@@ -241,11 +285,7 @@
       chatBox.style.display = "block";
       typeNextChar();
     });
-
-    function scrollCarousel(direction) {
-      const carousel = document.getElementById("carousel");
-      carousel.scrollBy({ left: direction * 300, behavior: "smooth" });
-    }
   </script>
 </body>
 </html>
+
