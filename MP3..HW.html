@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>アイドリッシュセブン</title>
   <style>
+    /* --- 基本設定 --- */
     body {
       background-color: #778899;
       font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
@@ -13,6 +14,7 @@
       text-align: center;
     }
 
+    /* --- 輪播區塊 --- */
     .carousel-wrapper {
       display: flex;
       align-items: center;
@@ -56,12 +58,33 @@
       color: #ffd;
     }
 
+    /* --- 音樂與影片區塊 --- */
     audio,
     video {
-      margin: 32px auto;
       display: block;
+      margin: 32px auto;
     }
 
+    video {
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+    }
+
+    figure {
+      margin: 32px auto;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    figure figcaption {
+      margin-top: 8px;
+      font-size: 20px;
+      color: #f0f0f0;
+      letter-spacing: 1px;
+    }
+
+    /* --- 標題與連結區塊 --- */
     figcaption {
       font-size: 22px;
       color: #f0f0f0;
@@ -83,6 +106,7 @@
       color: #ffffff;
     }
 
+    /* --- 對話角色與聊天框 --- */
     .avatar-chat-wrapper {
       display: flex;
       justify-content: center;
@@ -142,6 +166,41 @@
     .message {
       margin-bottom: 16px;
     }
+
+    /* --- 響應式：手機版優化 --- */
+    @media (max-width: 768px) {
+      .image-carousel img {
+        width: 90vw;
+        height: auto;
+      }
+
+      audio,
+      video {
+        width: 90%;
+      }
+
+      figure figcaption {
+        font-size: 16px;
+      }
+
+      #chat-box {
+        max-width: 90%;
+        font-size: 15px;
+      }
+
+      #my-avatar {
+        width: 120px;
+        height: 120px;
+      }
+
+      .carousel-wrapper {
+        flex-direction: column;
+      }
+
+      .arrow {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -165,20 +224,27 @@
   <figcaption>アイドリッシュセブン</figcaption>
 
   <!-- 音樂 -->
-  <audio controls>
-    <source src="idolish7.mp3" />
-  </audio>
-  <figcaption>アイドリッシュセブン「RESTART POiNTER」</figcaption>
-  <audio controls>
-    <source src="pieces-of-the-world.mp3" />
-  </audio>
-  <figcaption>Pieces of The World</figcaption>
+  <figure>
+    <audio controls>
+      <source src="idolish7.mp3" />
+    </audio>
+    <figcaption>アイドリッシュセブン「RESTART POiNTER」</figcaption>
+  </figure>
+
+  <figure>
+    <audio controls>
+      <source src="pieces-of-the-world.mp3" />
+    </audio>
+    <figcaption>Pieces of The World</figcaption>
+  </figure>
 
   <!-- 影片 -->
-  <video controls width="1000" src="idolish7the-policyMV.mp4"></video>
-  <figcaption>IDOLiSH7『THE POLiCY』MV FULL Ver.</figcaption>
+  <figure>
+    <video controls src="idolish7the-policyMV.mp4"></video>
+    <figcaption>IDOLiSH7『THE POLiCY』MV FULL Ver.</figcaption>
+  </figure>
 
-  <!-- 對話角色圖與框 -->
+  <!-- 對話角色圖 -->
   <div class="avatar-chat-wrapper">
     <div class="avatar-side">
       <img id="my-avatar" src="IMG_8384.png" alt="我的角色圖" title="點我開始說話！" />
@@ -192,7 +258,7 @@
     <figcaption>バック</figcaption>
   </a>
 
-  <!-- JS -->
+  <!-- JS：輪播與打字效果 -->
   <script>
     const carousel = document.getElementById("carousel");
     let isTransitioning = false;
