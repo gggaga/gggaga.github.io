@@ -1,9 +1,310 @@
-<figure>
-    <h2>我的祖國</h2>
-<img src="T.jpg"width="500" height="450">
-<figcaption>偉大的民主國</figcaption>
-</figure>
-<figure>
-    <img src="3.jpg"width="500" height="450">
-<figcaption>民主國前身</figcaption>
-</figure>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>ST☆RISH</title>
+  <style>
+    body {
+      background-color: #778899;
+      font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      color: #e0e0e0;
+      text-align: center;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .image-carousel {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      max-width: 90%;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .image-carousel img {
+      width: 500px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      scroll-snap-align: start;
+    }
+
+    .arrow {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .arrow:hover {
+      color: #ffd;
+    }
+
+    audio, video {
+      display: block;
+      margin: 32px auto;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    figure {
+      margin: 32px auto;
+      text-align: center;
+    }
+
+    figure iframe {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+
+    figcaption, a figcaption {
+      font-size: 22px;
+      color: #f0f0f0;
+      margin: 12px 0;
+      letter-spacing: 1px;
+    }
+
+    a figcaption {
+      font-size: 24px;
+      margin-top: 60px;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    a figcaption:hover {
+      color: #ffffff;
+    }
+
+    .avatar-chat-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .avatar-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #my-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #my-avatar:hover {
+      transform: scale(1.05);
+    }
+
+    #click-hint {
+      font-size: 16px;
+      color: #f0f0f0;
+      margin-top: 12px;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    #chat-box {
+      max-width: 600px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      text-align: left;
+      line-height: 1.6;
+      display: none;
+      color: #2e4057;
+      min-height: 120px;
+    }
+
+    .message {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 輪播圖 -->
+  <div class="carousel-wrapper">
+    <button class="arrow left" onclick="scrollCarousel(-1)">←</button>
+    <div class="image-carousel" id="carousel">
+      <img src="starish2.jpg" alt="ST☆RISH 1" />
+      <img src="starish3.jpg" alt="ST☆RISH 2" />
+      <img src="starish4.jpg" alt="ST☆RISH 3" />
+      <img src="starish5.jpg" alt="ST☆RISH 4" />
+      <img src="starish6.jpg" alt="ST☆RISH 5" />
+      <img src="starish7.jpg" alt="ST☆RISH 6" />
+      <img src="starish8.jpg" alt="ST☆RISH 7" />
+      <img src="starish9.jpg" alt="ST☆RISH 8" />
+      <img src="starish.l.jpg" alt="ST☆RISH 9" />
+      <img src="starish.s.jpg" alt="ST☆RISH 10" />
+      <img src="starish.m.jpg" alt="ST☆RISH 11" />
+      <img src="starish.o.jpg" alt="ST☆RISH 12" />
+      <img src="starish.c.jpg" alt="ST☆RISH 13" />
+      <img src="starish.t.jpg" alt="ST☆RISH 14" />
+      <img src="starish.r.jpg" alt="ST☆RISH 15" />
+    </div>
+    <button class="arrow right" onclick="scrollCarousel(1)">→</button>
+  </div>
+  <figcaption>ST☆RISH</figcaption>
+
+  <!-- 音樂 -->
+  <figure>
+    <audio controls>
+      <source src="placeholder.mp3" />
+    </audio>
+    <figcaption>「亂碼曲名」</figcaption>
+  </figure>
+
+  <!-- 影片 -->
+  <figure>
+    <iframe src="https://www.youtube.com/embed/xxxxxxxxxxx" title="YouTube video player" allowfullscreen></iframe>
+    <figcaption>亂碼影片標題</figcaption>
+  </figure>
+
+  <!-- 對話角色圖 -->
+  <div class="avatar-chat-wrapper">
+    <div class="avatar-side">
+      <img id="my-avatar" src="IMG_8384.png" alt="角色圖" title="點我開始說話！" />
+      <p id="click-hint">點圖片 🗨️</p>
+    </div>
+    <div id="chat-box"></div>
+  </div>
+
+  <!-- 返回連結 -->
+  <a href="https://gggaga.github.io">
+    <figcaption>バック</figcaption>
+  </a>
+
+  <!-- JS -->
+  <script>
+    const carousel = document.getElementById("carousel");
+    let isTransitioning = false;
+
+    function setupInfiniteCarousel() {
+      const images = Array.from(carousel.children);
+      const cloneCount = 3;
+
+      for (let i = 0; i < cloneCount; i++) {
+        const cloneFirst = images[i].cloneNode(true);
+        const cloneLast = images[images.length - 1 - i].cloneNode(true);
+        carousel.appendChild(cloneFirst);
+        carousel.insertBefore(cloneLast, carousel.firstChild);
+      }
+
+      requestAnimationFrame(() => {
+        const firstRealImage = carousel.children[cloneCount];
+        carousel.scrollLeft = firstRealImage.offsetLeft;
+      });
+    }
+
+    function scrollCarousel(direction) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const itemWidth = carousel.children[0].offsetWidth + 12;
+      carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
+
+      setTimeout(() => {
+        const scrollLeft = carousel.scrollLeft;
+        const children = carousel.children;
+        const total = children.length;
+        const cloneCount = 3;
+        const firstReal = children[cloneCount];
+        const lastReal = children[total - cloneCount - 1];
+
+        if (scrollLeft >= lastReal.offsetLeft) {
+          carousel.scrollLeft = firstReal.offsetLeft;
+        }
+
+        if (scrollLeft <= children[cloneCount - 1].offsetLeft) {
+          carousel.scrollLeft = lastReal.offsetLeft;
+        }
+
+        isTransitioning = false;
+      }, 450);
+    }
+
+    setupInfiniteCarousel();
+
+    const messages = [
+      "這是一段亂碼對話1",
+      "這是一段亂碼對話2",
+      "這是一段亂碼對話3"
+    ];
+
+    let currentMsg = 0;
+    let charIndex = 0;
+    const chatBox = document.getElementById("chat-box");
+
+    function typeNextChar() {
+      const message = messages[currentMsg];
+      let currentLine = document.getElementById(`msg-${currentMsg}`);
+
+      if (!currentLine) {
+        currentLine = document.createElement("div");
+        currentLine.className = "message";
+        currentLine.id = `msg-${currentMsg}`;
+        chatBox.appendChild(currentLine);
+      }
+
+      currentLine.textContent += message[charIndex];
+      charIndex++;
+
+      if (charIndex < message.length) {
+        setTimeout(typeNextChar, 50);
+      } else {
+        charIndex = 0;
+        currentMsg++;
+        if (currentMsg < messages.length) {
+          setTimeout(typeNextChar, 1000);
+        }
+      }
+    }
+
+    document.getElementById("my-avatar").addEventListener("click", () => {
+      const avatar = document.getElementById("my-avatar");
+      const hint = document.getElementById("click-hint");
+      avatar.style.pointerEvents = "none";
+      hint.style.display = "none";
+      chatBox.style.display = "block";
+      typeNextChar();
+    });
+  </script>
+</body>
+</html>
+
