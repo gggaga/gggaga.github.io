@@ -63,11 +63,11 @@
     video {
       display: block;
       margin: 32px auto;
+      width: 100%;
+      max-width: 960px;
     }
 
     video {
-      width: 100%;
-      max-width: 960px;
       height: auto;
     }
 
@@ -75,8 +75,8 @@
       margin: 32px auto;
       text-align: center;
     }
-    
-  figure iframe {
+
+    figure iframe {
       display: block;
       margin: 0 auto;
       width: 100%;
@@ -85,15 +85,8 @@
       border: none;
     }
 
-    figure figcaption {
-      margin-top: 8px;
-      font-size: 20px;
-      color: #f0f0f0;
-      letter-spacing: 1px;
-    }
-
-    /* --- 標題與連結區塊 --- */
-    figcaption {
+    figcaption,
+    a figcaption {
       font-size: 22px;
       color: #f0f0f0;
       margin: 12px 0;
@@ -102,9 +95,7 @@
 
     a figcaption {
       font-size: 24px;
-      text-align: center;
       margin-top: 60px;
-      color: #e0e0e0;
       text-decoration: underline;
       cursor: pointer;
       transition: color 0.3s;
@@ -187,7 +178,8 @@
         width: 90%;
       }
 
-      figure figcaption {
+      figcaption,
+      a figcaption {
         font-size: 16px;
       }
 
@@ -246,17 +238,15 @@
     <figcaption>Pieces of The World</figcaption>
   </figure>
 
- <figure>
-  <iframe
-    src="https://www.youtube.com/embed/zXpN0F1kDOs?si=BJPkMoYTN1mt6CD0"
-    title="YouTube video player"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-  </iframe>
-  <figcaption>IDOLiSH7『THE POLiCY』MV FULL Ver.</figcaption>
-</figure>
-
+  <figure>
+    <iframe src="https://www.youtube.com/embed/zXpN0F1kDOs?si=BJPkMoYTN1mt6CD0"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+    </iframe>
+    <figcaption>IDOLiSH7『THE POLiCY』MV FULL Ver.</figcaption>
+  </figure>
 
   <!-- 對話角色圖 -->
   <div class="avatar-chat-wrapper">
@@ -375,4 +365,3 @@
 </body>
 </html>
 
- 
