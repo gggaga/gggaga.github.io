@@ -56,6 +56,45 @@
       color: #ffd;
     }
 
+    /* 偶像介紹區塊 */
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  color: #ffffff;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.intro-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.intro-text h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #e0e8ff;
+}
+
+.intro-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+ /* --- 音樂與影片區塊 --- */
     audio,
     video {
       display: block;
@@ -148,7 +187,6 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
-
     #chat-box {
       max-width: 600px;
       background: #f9f9f9;
@@ -162,10 +200,28 @@
       color: #2e4057;
       min-height: 120px;
     }
-
     .message {
       margin-bottom: 16px;
     }
+    .music-divider {
+  text-align: center;
+  font-size: 24px;
+  color: #FCD7D7;
+  margin: 40px 0;
+}
+    
+    .signature-sticker {
+  position: absolute;
+  width: 180px;
+  bottom: -20px;
+  right: 20px;
+  pointer-events: none;
+  opacity: 0.95;
+}
+.intro-section {
+  position: relative; /* 為了讓簽名照定位於此區塊 */
+}
+
   </style>
 </head>
 <body>
@@ -191,6 +247,25 @@
     <button class="arrow right" onclick="scrollCarousel(1)">→</button>
   </div>
   <figcaption>漣ジュン</figcaption>
+  
+  <!-- 偶像介紹區塊 -->
+<div class="intro-section">
+  <img src="jun.png" alt="漣ジュン介紹圖" class="intro-image">
+  <div class="intro-text">
+    <h2>漣ジュン（CV：內田雄馬）</h2>
+    <p>
+      生日：8月16日<br>星座：獅子座<br>血型：Ｏ型<br>身高：174cm<br>應援色：深藍色<br>
+      挫折：從小因為父親沒有成為人氣偶像，而將希望寄托在純身上，每天要麼對純進行殘酷的訓練，要不就是喝酒頹廢。使得純跟父親的關係很僵硬。<br>
+      性格：認真滿腔熱忱，但一但提起巴日和，說話就會變得很不客氣。<br>
+      特技：即興擺pose，即興舞蹈<br>興趣：練肌肉、讀漫畫、釣魚、遊戲。<br>
+      口頭禪GODDAMN，來源是巽說最好不要怨恨別人，如果一定要怨那就怨神吧。</p>
+    </p>
+  </div>
+  <!-- 簽名照圖片（浮在右下角） -->
+  <img src="jun.sing.png" alt="漣ジュン簽名照" class="signature-sticker">
+</div>
+  
+  <div class="music-divider">♫ ♪ ♫ ♪ ♬♫ ♪ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭ 歌 ♮♫ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭♮ ♬ ♩♫ ♪</div>
 
   <!-- 音樂 -->
   <audio controls>
