@@ -200,50 +200,48 @@
       .arrow {
         font-size: 20px;
       }
-      /* --- 偶像介紹區塊 --- */
+     /* --- 偶像介紹區塊 --- */
 .idol-section {
-  display: flex;
-  align-items: Center;
-  justify-content: Center;
-  gap: 30px;
+  max-width: 1000px;
   margin: 40px auto;
-  max-width: 960px;
-  flex-wrap: wrap;
-  padding: 20px;
-  background-color: #7a2330;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.idol-section img {
-  width: 240px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.idol-info {
   text-align: left;
-  max-width: 500px;
+}
+
+.idol-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.idol-image {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.idol-info h3 {
+  margin-top: 0;
+  color: #FCD7D7;
+  font-size: 24px;
+}
+
+.idol-info p {
   font-size: 18px;
   line-height: 1.6;
+  white-space: pre-line;
 }
 
-.idol-info h2 {
-  margin-top: 0;
-  color: #ffdde0;
+.group-info p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #FCEFEF;
+  margin-top: 20px;
+  padding-left: 10px;
 }
-
-@media (max-width: 768px) {
-  .idol-section {
-    flex-direction: column;
-    text-align: Center;
-  }
-
-  .idol-info {
-    text-align: Center;
-  }
-}
-
+      
     }
   </style>
 </head>
@@ -270,10 +268,12 @@
   </div>
   <figcaption>LIP×LIP</figcaption>
 
-  <!-- 偶像介紹區塊 -->
+  <!-- 偶像介紹 -->
 <div class="idol-section">
-  <img src="yujiro.jpg" alt="勇次郎">
-  <div class="idol-info">
+  <!-- 勇次郎介紹 -->
+  <div class="idol-profile">
+    <img src="yujiro.jpg" alt="勇次郎" class="idol-image">
+    <div class="idol-info">
     <h2>染谷勇次郎（CV：内山昂輝）</h2>
     <p>生日：2月22日<br>星座：雙魚座<br>血型：B型<br>身高：176cm<br>應援色：藍色<br>
       挫折：因母親再婚而成為歌舞伎世家-染谷的孩子，從小學習歌舞伎相關但最終被父親說沒有才華不會讓他繼承，故失去人生目標。<br>性格：爽朗溫柔的酷系男子<br>
@@ -281,14 +281,24 @@
   </div>
 </div>
 
-<div class="idol-section">
-  <img src="aizo.jpg" alt="愛藏">
-  <div class="idol-info">
+<!-- 愛藏介紹 -->
+  <div class="idol-profile">
+    <img src="aizo.jpg" alt="愛藏" class="idol-image">
+    <div class="idol-info">
     <h2>柴崎愛藏（CV：島﨑信長）</h2>
     <p>生日：2月22日<br>星座：雙魚座<br>血型：A型<br>身高：175cm<br>應援色：黃色<br>
       挫折：喜歡唱歌，小學時在歌唱比賽中獲過獎，雖然經常唱歌，但是因為離婚的事情，整日酗酒的母親曾經對他說很吵。<br>
       性格：性格開朗，人緣很好，因外貌時常被認為是輕浮隨便的人，但其實非常純情並且很會察言觀色，意外的體貼。<br>
       擅長：在組合中表現出了更多的耐力，更能夠更好地完成更複雜的舞蹈動作<br>喜好：比起狗，他更喜歡貓</p></p>
+  </div>
+</div>
+   <!-- 團體介紹 -->
+  <div class="group-info">
+    <p>
+      公司海選偶像而成為組合，但兩人個性卻相差甚遠，<br>
+      因此兩人以「別給我拖後腿」的想法相互督促，共同成長著。<br>
+      演出時會在頸部或手腕印上作為組合標誌的唇印。
+    </p>
   </div>
 </div>
 
