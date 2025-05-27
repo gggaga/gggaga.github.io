@@ -168,9 +168,11 @@
 
     /* --- 響應式：手機版優化 --- */
     @media (max-width: 768px) {
-      .image-carousel img {
-        width: 90vw;
-        height: auto;
+  .carousel-wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
       }
 
       audio,
@@ -200,6 +202,28 @@
       .arrow {
         font-size: 20px;
       }
+    /* --- 團體介紹區塊 --- */
+.group-intro {
+  background-color: #ffffffdd;
+  margin: 40px auto;
+  padding: 40px 24px;
+  border-radius: 16px;
+  max-width: 960px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #2e4057;
+}
+
+.group-intro h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #1D6BA1;
+  border-left: 6px solid #1D6BA1;
+  padding-left: 12px;
+}
+
     }
   </style>
 </head>
@@ -223,6 +247,15 @@
   </div>
   <figcaption>アイドリッシュセブン</figcaption>
 
+  <!-- 團體介紹 -->
+<div class="group-intro">
+  <h2>團體介紹</h2>
+  <p>IDOLiSH7 是一個由七位風格迥異的成員組成的男子偶像團體，成員包括和泉一織、二階堂大和、和泉三月、四葉環、逢坂壯五、六彌凪與七瀨陸。</p>
+  <p>他們以音樂為核心，跨足動畫、舞台劇與遊戲等多元領域，在舞台上綻放出各自的光芒，也透過成員之間的羈絆與成長過程打動人心。</p>
+  <p>不論是面對困難時的堅持，或在舞台上所展現的能量，他們始終以真摯的情感回應粉絲。這不僅是一個偶像團體，更是一段由夢想、友情與努力編織而成的故事。</p>
+</div>
+  
+ <div class="music-divider">♫ ♪ ♫ ♪ ♬♫ ♪ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭ 歌 ♮♫ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭♮ ♬ ♩♫ ♪</div>
   <!-- 音樂 -->
   <figure>
     <audio controls>
