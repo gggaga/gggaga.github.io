@@ -210,15 +210,22 @@
   margin: 40px 0;
 }
     
-    .signature-sticker {
+.signature-sticker {
   position: absolute;
   width: 130px;
   bottom: 10px;
   right: 10px;
-  pointer-events: none;
+  pointer-events: auto; /* 改成 auto 才能滑過觸發 hover 效果 */
   opacity: 0.9;
   z-index: 10;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.signature-sticker:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px #aaccff); /* 發光效果，可改顏色 */
+}
+
 .intro-section {
   position: relative; /* 為了讓簽名照定位於此區塊 */
 }
