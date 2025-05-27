@@ -56,6 +56,45 @@
       color: #ffd;
     }
 
+      /* 偶像介紹區塊 */
+.intro-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  color: #ffffff;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.intro-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.intro-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.intro-text h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #e0e8ff;
+}
+
+.intro-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+ /* --- 音樂與影片區塊 --- */
     audio,
     video {
       display: block;
@@ -191,6 +230,32 @@
       .arrow {
         font-size: 20px;
       }
+      .signature-sticker {
+  position: absolute;
+  width: 100px;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 10;
+}
+/*簽名照效果*/
+.signature-sticker {
+  position: absolute;
+  width: 100px;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.9;
+  pointer-events: auto;
+  z-index: 10;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.signature-sticker:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 6px #ffffffcc);
+}
+
     }
   </style>
 </head>
@@ -217,6 +282,27 @@
     <button class="arrow right" onclick="scrollCarousel(1)">→</button>
   </div>
   <figcaption>逆先夏目</figcaption>
+  
+   <!-- 偶像介紹區塊 -->
+<div class="intro-section">
+  <img src="jun.png" alt="逆先夏目介紹圖" class="intro-image">
+  <div class="intro-text">
+    <h2>逆先（さかさき）夏目（なつめ）（CV：野島健兒）</h2>
+    <p>
+      原「五奇人」中的一員，十分仰慕身為「奇人」的前輩們，隸屬於組合【Switch】，並且擔任隊長。<br>
+      生日：2月4日<br>星座：水瓶座<br>血型：AB型<br>身高：170cm<br>應援色：紅色<br>
+      挫折：很喜歡五奇人的其他哥哥，為了涉能夠贏得與舊fine的對戰而熬夜做了奇人可以獲得幸福的劇本。但是被已經看出了英智的企圖的涉拒絕了。<br>
+      性格：愛挖苦人，喜歡唱反調。喜歡用不可思議的言行愚弄他人。<br>
+      特技：打響指<br>
+      不喜歡：不會游泳，因此也有些討厭夏天。<br>
+      知名占卜師的兒子，自己也一邊從事占卜師工作一邊進行偶像活動。平常會有很多神秘色彩的發言和舉動，但個性認真勤奮努力。<br>
+      ♡♡♡<br>
+      ♡♡♡</p>
+    </p>
+  </div>
+  <!-- 簽名照圖片（浮在右下角） -->
+  <img src="natume.sing.png" alt="逆先夏目簽名照" class="signature-sticker">
+</div>
 
   <!-- 音樂 -->
   <figure>
