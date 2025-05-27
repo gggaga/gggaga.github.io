@@ -204,25 +204,93 @@
       }
     /* --- 團體介紹區塊 --- */
 .group-intro {
-  background-color: #ffffffdd;
   margin: 40px auto;
-  padding: 40px 24px;
-  border-radius: 16px;
+  padding: 20px 16px;
   max-width: 960px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   text-align: left;
   line-height: 1.8;
   font-size: 18px;
-  color: #2e4057;
+  color: #ffffff;
 }
 
 .group-intro h2 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #1D6BA1;
-  border-left: 6px solid #1D6BA1;
+  color: #FFE066;
+  border-left: 6px solid #FFE066;
   padding-left: 12px;
 }
+.music-divider {
+  text-align: center;
+  font-size: 24px;
+  color: #FCD7D7;
+  margin: 40px 0;
+}
+/* --- 成員介紹區--- */
+    .group-intro {
+  max-width: 960px;
+  margin: 40px auto 0;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.group-intro h2 {
+  font-size: 28px;
+  color: #FFE066;
+  border-left: 6px solid #FFE066;
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+.group-intro p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.member-wrapper {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.member-wrapper h2 {
+  font-size: 28px;
+  color: #FFE066;
+  border-left: 6px solid #FFE066;
+  padding-left: 12px;
+  margin-bottom: 24px;
+}
+
+.member-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.member-card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.member-info h3 {
+  font-size: 22px;
+  color: #FFE066;
+  margin-bottom: 8px;
+}
+
+.member-info p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
 
     }
   </style>
@@ -251,8 +319,75 @@
 <div class="group-intro">
   <h2>團體介紹</h2>
   <p>IDOLiSH7 是一個由七位風格迥異的成員組成的男子偶像團體，成員包括和泉一織、二階堂大和、和泉三月、四葉環、逢坂壯五、六彌凪與七瀨陸。</p>
-  <p>他們以音樂為核心，跨足動畫、舞台劇與遊戲等多元領域，在舞台上綻放出各自的光芒，也透過成員之間的羈絆與成長過程打動人心。</p>
+  <p>他們七人各有著想成為偶像的原因與苦衷。隨著IDOLiSH7的成長，七位少年共同經歷了各種阻礙，而產生了堅強的羈絆。</p>
   <p>不論是面對困難時的堅持，或在舞台上所展現的能量，他們始終以真摯的情感回應粉絲。這不僅是一個偶像團體，更是一段由夢想、友情與努力編織而成的故事。</p>
+</div>
+<!-- 成員介紹 -->
+<div class="member-wrapper">
+  <h2>成員簡介</h2>
+
+  <div class="member-card">
+    <img src="1z.png" alt="和泉一織">
+    <div class="member-info">
+      <h3>和泉一織（CV：增田俊樹）</h3>
+      <p>身高：174cm｜生日：1月25日｜年齡：17歲｜記號：𝄫<br>
+      三月的弟弟。性格冷靜且成熟，擅長處理各種事務，被譽為「完美高中生」。喜歡可愛的東西卻不承認。成為偶像是為了哥哥的夢想。</p>
+    </div>
+  </div>
+  
+  <div class="member-card">
+    <img src="2j.png" alt="二階堂大和">
+    <div class="member-info">
+      <h3>二階堂大和（CV：白井悠介）</h3>
+      <p>身高：177cm｜生日：2月14日｜年齡：22歲｜記號：♯<br>
+      隊長，年紀最大。表面灑脫、實則熱血，為成員著想甚深。以「復仇」為名進入偶像界，原先厭惡演藝圈。</p>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img src="3u.png" alt="和泉三月">
+    <div class="member-info">
+      <h3>和泉三月（CV：代永翼）</h3>
+      <p>身高：165cm｜生日：3月3日｜年齡：21歲｜記號：♭<br>
+      一織的哥哥，是團內氣氛擔當。雖有男子氣概但常自己覺得能力不突出而感到自卑。從小夢想成為偶像。</p>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img src="4y.png" alt="四葉環">
+    <div class="member-info">
+      <h3>四葉環（CV：KENN）</h3>
+      <p>身高：183cm｜生日：4月1日｜年齡：17歲｜記號：mp<br>
+      與壯五還組成「MEZZO"」。舞蹈實力最強。我行我素，國王布丁是他的最大動力。為了尋找妹妹踏入演藝圈。</p>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img src="z5.png" alt="逢坂壯五">
+    <div class="member-info">
+      <h3>逢坂壯五（CV：阿部敦）</h3>
+      <p>身高：175cm｜生日：5月28日｜年齡：20歲｜記號：mf<br>
+      與環還組成「MEZZO"」。責任感強、會作曲，總是默默承擔一切。嗜辣，是富二代但選擇追夢，平時溫厚但酒後失控。</p>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img src="6m.png" alt="六彌凪">
+    <div class="member-info">
+      <h3>六彌凪（CV：江口拓也）</h3>
+      <p>身高：180cm｜生日：6月20日｜年齡：19歲｜記號：♮<br>
+      北歐小國王子，擁有絕世美貌與魅力。熱愛日本動畫，是團體中的調解者與和平守護者。</p>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img src="7l.png" alt="七瀨陸">
+    <div class="member-info">
+      <h3>七瀨陸（CV：小野賢章）</h3>
+      <p>身高：173cm｜生日：7月9日｜年齡：18歲｜記號：𝄪<br>
+      主唱，幼時體弱，對世界充滿好奇。常與一織鬥嘴卻彼此關心，與團員關係緊密、情感豐富。</p>
+    </div>
+  </div>
 </div>
   
  <div class="music-divider">♫ ♪ ♫ ♪ ♬♫ ♪ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭ 歌 ♮♫ ♩♪ ♯ ♫ ♬ ♫ ♪ ♬♩ ♭♮ ♬ ♩♫ ♪</div>
