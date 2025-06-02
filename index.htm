@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <title>我喜愛的偶像</title>
     <style>
-        /* 整體背景與字體設定 */
         body {
-            background-color: #778899; /* Light Slate Gray */
+            background-color: #778899;
             font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
             margin: 0;
             padding: 40px 20px;
             text-align: center;
         }
 
-        /* 標題設定 */
         h1 {
             font-size: 32px;
-            color: #e0e0e0; /* 比純白柔和一點 */
+            color: #e0e0e0;
             margin-bottom: 40px;
             letter-spacing: 1px;
         }
 
-        /* 整體卡片容器，橫向排列＋換行 */
+        /* 整體容器為垂直排列 */
         .idol-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             gap: 32px;
         }
 
-        /* 每一張偶像卡片樣式 */
+        /* 每一排橫向排列 */
+        .idol-row {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+        }
+
         .idol-card {
-            background-color: #f9f9f9; /* 更柔和的白 */
+            background-color: #f9f9f9;
             border-radius: 12px;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
             padding: 16px;
@@ -44,17 +48,15 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
-        /* 偶像圖片樣式 */
         .idol-card img {
             width: 100%;
             height: auto;
             border-radius: 8px;
         }
 
-        /* 偶像名字樣式（靛藍＋細陰影） */
         .idol-name {
             font-size: 18px;
-            color: #2e4057; /* 靛藍色：有深度、很日系 */
+            color: #2e4057;
             font-weight: 500;
             letter-spacing: 1px;
             margin-top: 10px;
@@ -64,50 +66,51 @@
 </head>
 <body>
 
-<h1>   一些我所喜愛的「偶像」 </h1>
-
-<figcaption>　</figcaption>
+<h1>一些我所喜愛的「偶像」</h1>
 
 <div class="idol-container">
-  <div class="idol-card">
-    <a href="https://gggaga.github.io/mp4..HW.html">
-        <img src="IMG_8382.png" alt="漣ジュン">
-    </a>
-    <div class="idol-name">漣ジュン</div>
-  </div>
 
-  <div class="idol-card">   
-    <a href="https://gggaga.github.io/MP3..HW.html">
-        <img src="i7.jpg" alt="idolish7">
-    </a>
-    <div class="idol-name">idolish7</div>
-</div>
-    
-<!-- 第三位偶像 -->
-  <div class="idol-card">
-    <a href="https://gggaga.github.io/HW4.html">
-        <img src="natume2.png" alt="さかさき なつめ">
-    </a>
-    <div class="idol-name">逆先夏目</div>
-  </div>
+    <!-- 第一排：3 張卡片 -->
+    <div class="idol-row">
+        <div class="idol-card">
+            <a href="https://gggaga.github.io/mp4..HW.html">
+                <img src="IMG_8382.png" alt="漣ジュン">
+            </a>
+            <div class="idol-name">漣ジュン</div>
+        </div>
 
-  <!-- 第四位偶像 -->
-  <div class="idol-card">
-    <a href="https://gggaga.github.io/Untitled-3.html">
-        <img src="starlish.jpg" alt="ST☆RISH">
-    </a>
-    <div class="idol-name">ST☆RISH</div>
-  </div>
+        <div class="idol-card">
+            <a href="https://gggaga.github.io/MP3..HW.html">
+                <img src="i7.jpg" alt="idolish7">
+            </a>
+            <div class="idol-name">idolish7</div>
+        </div>
 
-    <!-- 第五位偶像 -->
-  <div class="idol-card">
-    <a href="https://gggaga.github.io/Untitled-2.html">
-        <img src="liplip.jpg" alt="LIP×LIP">
-    </a>
-    <div class="idol-name">LIP×LIP</div>
-  </div>
-    
+        <div class="idol-card">
+            <a href="https://gggaga.github.io/HW4.html">
+                <img src="natume2.png" alt="逆先夏目">
+            </a>
+            <div class="idol-name">逆先夏目</div>
+        </div>
+    </div>
+
+    <!-- 第二排：2 張卡片 -->
+    <div class="idol-row">
+        <div class="idol-card">
+            <a href="https://gggaga.github.io/Untitled-3.html">
+                <img src="starlish.jpg" alt="ST☆RISH">
+            </a>
+            <div class="idol-name">ST☆RISH</div>
+        </div>
+
+        <div class="idol-card">
+            <a href="https://gggaga.github.io/Untitled-2.html">
+                <img src="liplip.jpg" alt="LIP×LIP">
+            </a>
+            <div class="idol-name">LIP×LIP</div>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
-    
